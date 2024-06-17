@@ -1,11 +1,18 @@
+/*
+ * File: 4-puts.c
+ * Auth: Heriberto Carreras Devariel <9473@holbertonschool.com>
+ */
 #include <stdio.h>
 
-int main(void) {
-    /* Use puts function to print the string*/
-    
-	   puts("Programming is like building a multilingual puzzle");
-    
-    
-    return 0;
-}
+/**
+ * main - Prints "Programming is like building a multilingual
+ *                puzzle, followed by a new line.
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+	puts("\"Programming is like building a multilingual puzzle");
 
+	return (0);
+}
