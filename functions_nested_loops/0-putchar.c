@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * Write a program that prints _putchar, followed by a new line.
- *
- * Return success (0)
+ * main - Entry point
+ * Description: print _putchar follwed by a new line
+ * Return: 0 (success)
  */
 int main(void)
 {
