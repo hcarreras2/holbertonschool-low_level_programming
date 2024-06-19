@@ -17,5 +17,13 @@ int main(void)
 	_putchar('r');
 	_putchar('\n');
 
-	return 0;
+	return (0);
 }
+
+/**
+ * _putchar - Custom function to print a single character
+ * @c: Character to print
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
+ */
