@@ -9,9 +9,10 @@
  *
  * Return: Pointer to dest
  */
+
 char *_strcpy(char *dest, char *src)
 {
-	char *orig_dest= dest;
+	char *orig_dest = dest;
 
 	while (*src != '\0')
 	{
@@ -19,9 +20,9 @@ char *_strcpy(char *dest, char *src)
 		dest++;
 		src++;
 	}
-	
+
 	*dest = '\0';
 
-	return orig_dest;
+	return (orig_dest);
 }
 
