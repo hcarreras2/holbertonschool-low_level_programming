@@ -1,4 +1,6 @@
 #include "main.h"
+#include <stddef.h>
+
 /**
  *
  *
@@ -12,7 +14,7 @@ char *_strpbrk(char *s, char *accept)
 	{
 		for (a = accept; *a; a++)
 		{
-			if (s* == *a)
+			if (*s == *a)
 				return (s);
 		}
 		s++;
