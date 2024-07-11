@@ -1,66 +1,52 @@
 #include "dog.h"
 #include <stdlib.h>
-#include <string.h>
 
 /**
- * init_dog - initializes a variable of type struct dog
- * @d: pointer to struct dog
- * @name: name of the dog
- * @age: age of the dog
- * @owner: owner of the dog
+ * new_dog - creates a new dog.
+ * @name: name of the dog.
+ * @age: age of the dog.
+ * @owner: owner of the dog.
  *
- * Description: This function initializes a dog structure with the
- * given name, age, and owner.
- */
-void init_dog(struct dog *d, char *name, float age, char *owner)
-{
-	if (d != NULL)
-	{
-		d->name = name;
-		d->age = age;
-		d->owner = owner;
-	}
-}
-
-/**
- * new_dog - creates a new dog
- * @name: name of the dog
- * @age: age of the dog
- * @owner: owner of the dog
- *
- * Return: pointer to the new dog (dog_t), or NULL if the function fails
+ * Return: struct dog.
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *new_dog;
-	char *new_name;
-	char *new_owner;
+	dog_t *p_dog;
+	int i, lname, lowner;
 
-	new_dog = malloc(sizeof(dog_t));
-	if (new_dog == NULL)
-		return (NULL);
-
-	new_name = malloc(sizeof(char) * (strlen(name) + 1));
-	if (new_name == NULL)
+	p_dog = malloc(sizeof(*p_dog));
+	if (p_dog == NULL || !(name) || !(owner))
 	{
-		free(new_dog);
-		return (NULL);
-	}
-	new_owner = malloc(sizeof(char) * (strlen(owner) + 1));
-	if (new_owner == NULL)
-	{
-		free(new_name);
-		free(new_dog);
+		free(p_dog);
 		return (NULL);
 	}
 
-	strcpy(new_name, name);
-	strcpy(new_owner, owner);
+	for (lname = 0; name[lname]; lname++)
+		;
 
-	new_dog->name = new_name;
-	new_dog->age = age;
-	new_dog->owner = new_owner;
+	for (lowner = 0; owner[lowner]; lowner++)
+		;
 
-	return (new_dog);
+	p_dog->name = malloc(lname + 1);
+	p_dog->owner = malloc(lowner + 1);
+
+	if (!(p_dog->name) || !(p_dog->owner))
+	{
+		free(p_dog->owner);
+		free(p_dog->name);
+		free(p_dog);
+		return (NULL);
+	}
+
+	for (i = 0; i < lname; i++)
+		p_dog->name[i] = name[i];
+	p_dog->name[i] = '\0';
+
+	p_dog->age = age;
+
+	for (i = 0; i < lowner; i++)
+		p_dog->owner[i] = owner[i];
+	p_dog->owner[i] = '\0';
+
+	return (p_dog);
 }
-
